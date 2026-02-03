@@ -37,6 +37,16 @@ export default function Home() {
   const [categoryFilter, setCategoryFilter] = useState("all");
 
 
+  const categories = Array.from(
+    new Set(businesses.map((business) => business.category))
+  );
+
+
+  console.log("Businesses length:", businesses.length);
+  console.log("Derived categories:", categories);
+
+
+
   const filteredBusinesses =
     categoryFilter === "all"
       ? businesses
@@ -45,7 +55,7 @@ export default function Home() {
         );
 
 
-  const sortedBusinesses = [...filteredBusinesses].sort((a, b) => {
+ const sortedBusinesses = [...filteredBusinesses].sort((a, b) => {
     if (sortBy === "rating") {
       return b.rating - a.rating;
     }
@@ -89,9 +99,12 @@ export default function Home() {
             className="rounded border px-2 py-1 text-sm"
           >
             <option value="all">All</option>
-            <option value="Cafe">Cafe</option>
-            <option value="Bookstore">Bookstore</option>
-            <option value="Bakery">Bakery</option>
+            {categories.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+
           </select>
         </div>
 
