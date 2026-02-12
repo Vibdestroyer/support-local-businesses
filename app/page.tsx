@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import BusinessCard from "../components/BusinessCard";
+import Hero from "../components/Hero";
 
 
 export default function Home() {
@@ -71,56 +72,54 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen items-center justify-center font-sans">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center gap-8 py-32 px-16 sm:items-start">
-        <h1 className="text-3xl font-semibold text-[color:var(--foreground)]">
-          Support Local Businesses
-        </h1>
+      <main className="relative min-h-screen w-full">
 
-        <p className="text-[color:var(--muted)]">
-          Discover and support small businesses in your community.
-        </p>
+        <Hero />
+        
+        <section className="mx-auto max-w-6xl px-6 py-24">
 
 
-        <div className="flex items-center gap-2">
-          <label className="text-sm font-medium">Sort by:</label>
-          <select
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value)}
-           className="rounded border border-[color:var(--card-border)] bg-[color:var(--card)] px-2 py-1 text-sm text-[color:var(--foreground)]"
-          >
-            <option value="name">Name</option>
-            <option value="rating">Rating</option>
-          </select>
-        </div>
-
-        <div className="flex items-center gap-2">
-          <label className="text-sm font-medium">Category:</label>
-          <select
-            value={categoryFilter}
-            onChange={(e) => setCategoryFilter(e.target.value)}
+          <div className="flex items-center gap-2">
+            <label className="text-sm font-medium">Sort by:</label>
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
             className="rounded border border-[color:var(--card-border)] bg-[color:var(--card)] px-2 py-1 text-sm text-[color:var(--foreground)]"
-          >
-            <option value="all">All</option>
-            {categories.map((category) => (
-              <option key={category} value={category}>
-                {category}
-              </option>
+            >
+              <option value="name">Name</option>
+              <option value="rating">Rating</option>
+            </select>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <label className="text-sm font-medium">Category:</label>
+            <select
+              value={categoryFilter}
+              onChange={(e) => setCategoryFilter(e.target.value)}
+              className="rounded border border-[color:var(--card-border)] bg-[color:var(--card)] px-2 py-1 text-sm text-[color:var(--foreground)]"
+            >
+              <option value="all">All</option>
+              {categories.map((category) => (
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              ))}
+
+            </select>
+          </div>
+
+
+          <div className="w-full space-y-4">
+            {sortedBusinesses.map((business) => (
+              <BusinessCard
+                key={business.id}
+                name={business.name}
+                category={business.category}
+                rating={business.rating}
+              />
             ))}
-
-          </select>
-        </div>
-
-
-        <div className="w-full space-y-4">
-          {sortedBusinesses.map((business) => (
-            <BusinessCard
-              key={business.id}
-              name={business.name}
-              category={business.category}
-              rating={business.rating}
-            />
-          ))}
-        </div>
+          </div>
+        </section>
       </main>
     </div>
   );

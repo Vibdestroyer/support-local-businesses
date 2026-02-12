@@ -1,6 +1,6 @@
-export default function Turtle() {
+export default function AmbientTheme() {
   return (
-    <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+    <div className="fixed inset-0 z-0 pointer-events-none">
       {/* Base gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0b0b10] via-[#120f1a] to-[#0b0b10]" />
 
