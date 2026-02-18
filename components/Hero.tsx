@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative z-20 w-full overflow-hidden pt-20 pb-[min(12vh,6rem)] lg:min-h-screen">
+    <section className="relative z-20 w-full overflow-hidden pt-20 pb-30 sm:pb-40 xl:pb-0 lg:min-h-screen">
 
 
 
@@ -45,14 +45,14 @@ export default function Hero() {
 
 
         {/* ================= CONTENT GRID ================= */}
-       <div className="relative flex items-center pt-10">
+       <div className="relative flex items-center pt-5">
 
 
-            <div className="grid w-full grid-cols-1 gap-12 lg:grid-cols-[1fr_.9fr]">
+            <div className="grid w-full grid-cols-1 gap-12 xl:grid-cols-[1fr_.9fr]">
         
                 {/* ========== LEFT: TEXT COLUMN ========== */}
                 <div className="relative pr-5 lg:pl-6">
-                    <div className="mx-auto max-w-[650px] text-center lg:text-left">
+                    <div className="mx-auto max-w-[850px] text-center lg:text-left">
 
                         <h1 className="font-semibold tracking-tight text-white leading-tight text-[clamp(2.5rem,5vw,5rem)]">
                         Supporting Local Businesses & Communities

@@ -67,7 +67,7 @@ export default function Home() {
 
   
 //<main className="relative min-h-screen w-full">
-// <div className="flex min-h-screen items-center justify-center font-sans">
+//<div className="flex min-h-screen items-center justify-center font-sans">
 //<main className="flex min-h-screen w-full max-w-3xl flex-col items-center gap-8 py-32 px-16 sm:items-start">
 
 
@@ -77,7 +77,7 @@ export default function Home() {
 
         <Hero />
         
-        <section className="mx-auto max-w-6xl px-6 py-24">
+        <section className="mx-auto max-w-6xl px-6 py-5">
 
 
           <div className="flex items-center gap-2">
@@ -117,6 +117,9 @@ export default function Home() {
                 name={business.name}
                 category={business.category}
                 rating={business.rating}
+                address={business.address}
+                description={business.description}
+                website={business.website}
               />
             ))}
           </div>
